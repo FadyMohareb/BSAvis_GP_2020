@@ -1,5 +1,4 @@
 # BSAvis
 ## Plots
-
-Initial results - ongoing
+Initial plots - BSAvis script.
 
