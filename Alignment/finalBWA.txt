@@ -1,0 +1,266 @@
+############################################################################################
+####################################### BWA ALIGNMENT ###################################### 
+############################################################################################
+
+##Create directory for bwa alignment
+mkdir 2_bwa_header
+cd  2_bwa_header
+##upload tomato reference genome to 2_bwa_header folder (S_lycopersicum_chromosomes.4.00.fa)
+
+##Load bwa module
+module load bwa
+##Create bwa index
+bwa index -a btwsw /home/gp/bsagroup/2_bwa2/S_lycopersicum_chromosomes.4.00.fa
+
+##For each sample (7 in total):
+
+#####################
+#####S3781_minus#####
+#####################
+screen -S S3781minus_bwa
+cd  2_bwa_header
+
+##Perform BWA alignment
+module load bwa
+
+bwa mem -M -t 32 -R \
+"@RG\tID:S3781_minus\tSM:pool_S3781_minus\tPL:illumina\tLB:lib1\tPU:unit1" \
+S_lycopersicum_chromosomes.4.00.fa \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S3781_minus/S3781_minus_EDSW192002433-1a_HWLHHDSXX_L3_1.fq.gz \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S3781_minus/S3781_minus_EDSW192002433-1a_HWLHHDSXX_L3_2.fq.gz > S3781_minus_aligned_header.sam
+
+##Sort SAM file by coordinates and convert to BAM format
+module load picard
+
+java -jar $PICARD SortSam \
+SORT_ORDER=coordinate \
+INPUT=S3781_minus_aligned_header.sam \
+OUTPUT=S3781_minus_aligned_header.bam \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+##Mark PCR duplicates
+java -jar $PICARD MarkDuplicates \
+INPUT=S3781_minus_aligned_header.bam \
+OUTPUT=S3781_minus_aligned_header.marked.bam \
+METRICS_FILE=metrics \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+
+#####################
+#####S3781_plus######
+#####################
+screen -S S3781plus_bwa
+cd  2_bwa_header
+
+##Perform BWA alignment
+module load bwa
+
+bwa mem -M -t 32 -R \
+"@RG\tID:S3781_plus\tSM:pool_S3781_plus\tPL:illumina\tLB:lib2\tPU:unit2" \
+S_lycopersicum_chromosomes.4.00.fa \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S3781_plus/S3781_plus_EDSW192002432-1a_HWLHHDSXX_L3_1.fq.gz \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S3781_plus/S3781_plus_EDSW192002432-1a_HWLHHDSXX_L3_2.fq.gz > S3781_plus_aligned_header.sam
+
+##Sort SAM file by coordinates and convert to BAM format
+module load picard
+
+java -jar $PICARD SortSam \
+SORT_ORDER=coordinate \
+INPUT=S3781_plus_aligned_header.sam \
+OUTPUT=S3781_plus_aligned_header.bam \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+##Mark PCR duplicates
+java -jar $PICARD MarkDuplicates \
+INPUT=S3781_plus_aligned_header.bam \
+OUTPUT=S3781_plus_aligned_header.marked.bam \
+METRICS_FILE=metrics \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+
+#####################
+########S1849########
+#####################
+screen -S S1849_bwa
+cd  2_bwa_header
+
+##Perform BWA alignment
+module load bwa
+
+bwa mem -M -t 32 -R \
+"@RG\tID:S1849\tSM:parent_S1849\tPL:illumina\tLB:lib3\tPU:unit3" \
+S_lycopersicum_chromosomes.4.00.fa \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S1849/S1849_EDSW192002429-1a_HWLHHDSXX_L3_1.fq.gz \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S1849/S1849_EDSW192002429-1a_HWLHHDSXX_L3_2.fq.gz > S1849_aligned_header.sam
+
+##Sort SAM file by coordinates and convert to BAM format
+module load picard
+
+java -jar $PICARD SortSam \
+SORT_ORDER=coordinate \
+INPUT=S1849_aligned_header.sam \
+OUTPUT=S1849_aligned_header.bam \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+##Mark PCR duplicates
+java -jar $PICARD MarkDuplicates \
+INPUT=S1849_aligned_header.bam \
+OUTPUT=S1849_aligned_header.marked.bam \
+METRICS_FILE=metrics \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+
+#####################
+#####Alisa Craig#####
+#####################
+screen -S AC_bwa
+cd  2_bwa_header
+
+##Perform BWA alignment
+module load bwa
+
+bwa mem -M -t 32 -R \
+"@RG\tID:AC\tSM:parent_AC\tPL:illumina\tLB:lib4\tPU:unit4" \
+S_lycopersicum_chromosomes.4.00.fa \
+/home/gp/bsagroup/data/AilsaCraig/2-594737-SHE2712A1_S136_L008_R1_001_AC.fastq.gz \
+/home/gp/bsagroup/data/AilsaCraig/2-594737-SHE2712A1_S136_L008_R2_001_AC.fastq.gz > AC_aligned_header.sam
+
+##Sort SAM file by coordinates and convert to BAM format
+module load picard
+
+java -jar $PICARD SortSam \
+SORT_ORDER=coordinate \
+INPUT=AC_aligned_header.sam \
+OUTPUT=AC_aligned_header.bam \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+##Mark PCR duplicates
+java -jar $PICARD MarkDuplicates \
+INPUT=AC_aligned_header.bam \
+OUTPUT=AC_aligned_header.marked.bam \
+METRICS_FILE=metrics \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+
+#####################
+#####S3785_minus#####
+#####################
+screen -S S3785minus_bwa
+cd  2_bwa_header
+
+##Perform BWA alignment
+module load bwa
+
+bwa mem -M -t 32 -R \
+"@RG\tID:S3785_minus\tSM:pool_S3785_minus\tPL:illumina\tLB:lib1\tPU:unit1" \
+S_lycopersicum_chromosomes.4.00.fa \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S3785_minus/S3785_minus_EDSW192002435-1a_HWLHHDSXX_L4_1.fq.gz \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S3785_minus/S3785_minus_EDSW192002435-1a_HWLHHDSXX_L4_2.fq.gz > S3785_minus_aligned_header.sam
+
+##Sort SAM file by coordinates and convert to BAM format
+module load picard
+
+java -jar $PICARD SortSam \
+SORT_ORDER=coordinate \
+INPUT=S3785_minus_aligned_header.sam \
+OUTPUT=S3785_minus_aligned_header.bam \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+##Mark PCR duplicates
+java -jar $PICARD MarkDuplicates \
+INPUT=S3785_minus_aligned_header.bam \
+OUTPUT=S3785_minus_aligned_header.marked.bam \
+METRICS_FILE=metrics \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+
+#####################
+#####S3785_plus######
+#####################
+screen -S S3785plus_bwa
+cd  2_bwa_header
+
+##Perform BWA alignment
+module load bwa
+
+bwa mem -M -t 32 -R \
+"@RG\tID:S3785_plus\tSM:pool_S3785_plus\tPL:illumina\tLB:lib2\tPU:unit2" \
+S_lycopersicum_chromosomes.4.00.fa \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S3785_plus/S3785_plus_EDSW192002434-1a_HWLHHDSXX_L3_1.fq.gz \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S3785_plus/S3785_plus_EDSW192002434-1a_HWLHHDSXX_L3_2.fq.gz > S3785_plus_aligned_header.sam
+
+##Sort SAM file by coordinates and convert to BAM format
+module load picard
+
+java -jar $PICARD SortSam \
+SORT_ORDER=coordinate \
+INPUT=S3785_plus_aligned_header.sam \
+OUTPUT=S3785_plus_aligned_header.bam \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+##Mark PCR duplicates
+java -jar $PICARD MarkDuplicates \
+INPUT=S3785_plus_aligned_header.bam \
+OUTPUT=S3785_plus_aligned_header.marked.bam \
+METRICS_FILE=metrics \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+
+#####################
+########S1851########
+#####################
+screen -S S1851_bwa
+cd  2_bwa_header
+
+##Perform BWA alignment
+module load bwa
+
+bwa mem -M -t 32 -R \
+@RG\tID:S1851_L4\tSM:parent_S1851\tPL:illumina\tLB:lib3\tPU:unit3 \
+S_lycopersicum_chromosomes.4.00.fa \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S1851/S1851_EDSW192002430-1a_HWLHCDSXX_L4_1.fq.gz \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S1851/S1851_EDSW192002430-1a_HWLHCDSXX_L4_2.fq.gz > S1851_L4_aligned_header.sam
+
+bwa mem -M -t 32 -R \
+@RG\tID:S1851_L3\tSM:parent_S1851\tPL:illumina\tLB:lib5\tPU:unit5 \
+S_lycopersicum_chromosomes.4.00.fa \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S1851/S1851_EDSW192002430-1a_HWLHHDSXX_L3_1.fq.gz \
+/usr/share/bix/adroot/RawSequencingData/Novogene/X201SC19113024-Z01-F001/raw_data/S1851/S1851_EDSW192002430-1a_HWLHHDSXX_L3_2.fq.gz > S1851_L3_aligned_header.sam
+
+##Sort SAM file by coordinates and convert to BAM format
+module load picard
+
+java -jar $PICARD SortSam \
+SORT_ORDER=coordinate \
+INPUT=S1851_L4_aligned_header.sam \
+OUTPUT=S1851_L4_aligned_header.bam \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+java -jar $PICARD SortSam \
+SORT_ORDER=coordinate \
+INPUT=S1851_L3_aligned_header.sam \
+OUTPUT=S1851_L3_aligned_header.bam \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true
+
+##Mark PCR duplicates
+java -jar $PICARD MarkDuplicates \
+INPUT=S1851_L3_aligned_header.bam \
+INPUT=S1851_L4_aligned_header.bam \
+OUTPUT=S1851_aligned_header.marked.bam \
+METRICS_FILE=metrics \
+VALIDATION_STRINGENCY=LENIENT \
+CREATE_INDEX=true

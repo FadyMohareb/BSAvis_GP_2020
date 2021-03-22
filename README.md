@@ -1,1 +1,4 @@
-# BSAvis_GP_2020
+# BSAvis - Group Project (2020-2021)
+Bulk Segregant Analysis pipeline.
+
+(*...work in progress...*)

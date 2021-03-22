@@ -1,0 +1,2 @@
+# Plots generated from existing tools
+QTLseqr (https://github.com/bmansfeld/QTLseqr) and bsaR (https://github.com/xuzhougeng/bsaR) were run to generate plots for both datasets, which will be used as reference/for comparison matters.
