@@ -1,4 +1,8 @@
 # BSAvis - R script
-## coming soon...
+## in progress...
 
-![alt text]()
+# SNP Index
+![SNP Index](snp_index.png)
+
+# delta(SNP Index)
+![delta(SNP Index)](delta_snp.png)
