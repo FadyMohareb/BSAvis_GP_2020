@@ -3,8 +3,8 @@
 Initial plots - BSAvis script.
 
 # SNP Index
-![SNP Index](snp_index.png)
+![SNP Index](./single_plots/snp_index.png)
 
 # delta(SNP Index)
-![delta(SNP Index)](delta_snp.png)
+![delta(SNP Index)](./single_plots/delta_snp.png)
 
