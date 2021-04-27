@@ -66,31 +66,36 @@ devtools::install_github("EG-lisy/BSAvis")
 #Load BSAvis
 library(BSAvis)
 ```
-Please note that help pages for every implemented function can be inspected on RStudio at any time:
+Please note that **help pages** for every implemented function can be inspected on RStudio at any time:
 
 ```R
-#BSAvis Functions Help Pages
-?BSAvis_shiny
-?SNPindex_plot 
+#Read the VCF file
+?readBSA_vcf 
+
+#BSAvis Package Functions
+?SNPindex_plot
+?deltaSNPindex_plot  
 ?SNPratio_plot 
 ?calc_SNPindex 
 ?calc_SNPratio 
 ?calc_deltaSNPindex 
-?deltaSNPindex_plot 
 ?extract_chrIDs 
 ?filter_SNPindex 
 ?filter_SNPratio 
 ?plot_SNPindex 
 ?plot_SNPratio 
 ?plot_deltaSNPindex 
-?readBSA_vcf 
-?shinyPlot_SNPindex 
-?shinyPlot_SNPratio 
-?shinyPlot_deltaSNPindex 
+
+#BSAvis R-Shiny App
+?BSAvis_shiny
+#Not to be run manually:
 ?shiny_SNPindex 
 ?shiny_SNPratio 
 ?shiny_deltaSNPindex 
 ?slidingWindow
+?shinyPlot_SNPindex 
+?shinyPlot_deltaSNPindex 
+?shinyPlot_SNPratio 
 ```
 
 # Reading the VCF file
