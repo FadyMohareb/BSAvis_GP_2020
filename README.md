@@ -191,7 +191,7 @@ For all functions listed above, please note that:
 - The minimum required parameters are: `vcf.list`, `wtBulk`, `mBulk`, `chrID` and `chr`
 - `filename`, `path`, `width`, `height` and `units` are all part of the plot-saving functionality and are directly linked with the `dpi` parameter. Without setting `dpi`, all the parameters highlighted in blue will be ignored
 - Some parameters are already set to default but can be customized
-- To properly implement the function, please refer to the [Technical Documentation]() or inspect the help pages of each function on RStudio 
+- To properly implement the function, please refer to the [Technical Documentation]() or inspect the [help pages](#Installing-BSAvis) of each function on RStudio 
 
 # Stepwise BSA and Plotting
 Functions included in this section will apply the chosen BSA method and return the plots to the user in a multistep process, conversely to the previous section which describes the process for a simple combined functionality approach to BSA and plotting.<br>
