@@ -37,8 +37,8 @@ A brief step-by-step process on how to run BSAvis is included on this page, usin
 
 # Testing files
 The following testing files have been provided:
-* `test_userManual.RData`
-* `dataset1_pools.vcf`
+* `test.RData` ([Here](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/test.RData))
+* `test.vcf` ([Here](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/test.vcf))
 
 The zipped folder (`BSAvis.zip`) containing the testing filed can be downloaded direcly from [here](https://drive.google.com/u/0/uc?export=download&confirm=jwC_&id=1vTiYoS02eR1ImPq7amMX2VKELNxW3YHc "BSAvis Testing Files").
 
