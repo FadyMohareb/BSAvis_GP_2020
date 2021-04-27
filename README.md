@@ -33,7 +33,7 @@ BSAvis package requires merged Variant Calling Format (`VCF`) files as input fil
 Be aware that the `AD` (Allelic Depth) column needs to be included inside the `VCF` file, therefore previous versions to `GATK4` are not recommended. <br> Joint genotyping is also required to obtain a single `VCF` file that includes variants from both bulks. 
 
 # Documentation
-A brief step-by-step process on how tu run BSAvis is included on this page, using testing files. However, please refer to the [User Manual](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/user_manual_BSAvis.pdf "BSAvis User Manual") and [Technical Documentation]() for a better understanding of the implemented functions.
+A brief step-by-step process on how to run BSAvis is included on this page, using testing files. However, please refer to the [User Manual](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/user_manual_BSAvis.pdf "BSAvis User Manual") and [Technical Documentation]() for a better understanding of the implemented functions.
 
 # Testing files
 The following testing files have been provided:
