@@ -103,16 +103,16 @@ Proceed running the following command:
 
 ```R
 #Read VCF file
-vcf_list <- readBSA_vcf("dataset1_pools.vcf")
+vcf_list <- readBSA_vcf("test.vcf")
 ```
 
 **Warning –** this step might take time to complete (approximately 15-20 minutes). It is strongly recommended to leave RStudio open and running, to properly process the data. Move to the next step only after the red button in the top right corner of the console disappears.
 
-Alternatively, to familiarize yourself with the package and skip the `readBSA_vcf()`function, you can directly load the `vcf_list` object using the provided `.RData` file (`test_userManual.RData`), either by double-clicking on the file or by running the following command:
+Alternatively, to familiarize yourself with the package and skip the `readBSA_vcf()`function, you can directly load the `vcf_list` object using the provided `.RData` file (`test.RData`), either by double-clicking on the file or by running the following command:
 
 ```R
 #Load workspace
-load("test_userManual.RData")
+load("test.RData")
 ```
 
 # BSAvis Package - Practical Examples
