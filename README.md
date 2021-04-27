@@ -69,9 +69,8 @@ library(BSAvis)
 Please note that **help pages** for every implemented function can be inspected on RStudio at any time:
 
 ```R
-#Read the VCF file
+#Common
 ?readBSA_vcf 
-
 #BSAvis Package Functions
 ?SNPindex_plot
 ?deltaSNPindex_plot  
@@ -85,10 +84,9 @@ Please note that **help pages** for every implemented function can be inspected 
 ?plot_SNPindex 
 ?plot_SNPratio 
 ?plot_deltaSNPindex 
-
 #BSAvis R-Shiny App
 ?BSAvis_shiny
-#Not to be run manually:
+#NOT to be run manually
 ?shiny_SNPindex 
 ?shiny_SNPratio 
 ?shiny_deltaSNPindex 
@@ -204,7 +202,8 @@ Functions included in this section will apply the chosen BSA method and return t
 All of the included examples refer have been applied to the **testing dataset**.<br>
 
 **Important notes** 
-- be sure to have run the `readBSA_vcf()`function before moving on.some parameters are already set to default but can be customized
+- be sure to have run the `readBSA_vcf()`function before moving on
+- some parameters are already set to default but can be customized
 - to properly implement the functions, please refer to the [Technical Documentation]() or directly inspect the help pages on RStudio.
 
 ## SNP-index/∆(SNP-index) Method
