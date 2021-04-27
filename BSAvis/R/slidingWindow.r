@@ -1,47 +1,82 @@
 #Calculate sliding windows and mean values (M/WT bulks)
+
+#' @title Sliding Windows
+#' @description This function allows to calculate the sliding window based on the chromosome length of the desired chromosome to analyse. 
+#' A data frame containing the mean SNP-index values of both bulks gets generated.
 #'
-#' This function allows to calculate the sliding window and the mean values of both bulks.
+#' @param meta meta information stored inside the vcf file
+#' @param chrList list of chromosome IDs
+#' @param chrID chromosome ID of interest
+#' @param windowSize window size (default=1000000)
+#' @param windowStep window step (default=10000)
+#' @param vcf.df.SNPindex.filt filtered SNP-index data frame
 #'
-#' @param Chrom chromosome ID
-#' @param chromLength chromosome length
-#' @param windowSize window size
-#' @param windowStep window step
-#' @param df data frame
+#' @return SNP-index windows
 #'
-#' @return windows
-#'
-#' @export
+#' @importFrom dplyr %>%
+#' @export slidingWindow 
 #' @examples
-#' slidingwindow()
+#' ## Default parameters
+#' SNPindex_windows <- slidingWindow(meta=vcf_list$meta, 
+#'                                   chrList=chromList, 
+#'                                   chrID="SL4.0ch03",  
+#'                                   vcf.df.SNPindex.filt=vcf_df_SNPindex_filt)
+#' ## Custom parameters
+#' SNPindex_windows <- slidingWindow(meta=vcf_list$meta, 
+#'                                   chrList=chromList, 
+#'                                   chrID="SL4.0ch03", 
+#'                                   windowSize=2000000, 
+#'                                   windowStep=20000, 
+#'                                   vcf.df.SNPindex.filt=vcf_df_SNPindex_filt)
 
 
-slidingWindow <- function(Chrom, chromLength, windowSize, windowStep, df){
+slidingWindow <- function(meta, chrList, chrID, windowSize=1000000, windowStep=10000, vcf.df.SNPindex.filt){
   
+  # -------------------------- Length of chosen chromosome --------------------------- 
+  #Extract those meta lines containing the length of the chromosomes
+  lengthLines <- meta[grep("<ID.*length=", meta)]
+  #Remove characters before length number (by replacing with "")
+  chrLengths <- sub(".*length=", "", lengthLines)
+  #Remove characters after length number (by replacing with "")
+  chrLengths <- as.numeric(sub(">", "", chrLengths))
+  
+  #Find length of chosen chromosome (index corresponding to chosen chromosome is the same in chrLengths and chrList)
+  chrLength <- chrLengths[grep(chrID, chrList)]
+  
+  # -------------------- Find start and stop points of each window -------------------- 
   #Find the start points of each window
-  windowStart <- seq(from = 1, to = chromLength, by = windowStep)
-  #Add window size to each start point 
+  windowStart <- seq(from = 1, to = chrLength, by = windowStep)
+  #Add window size to each start point to find stop points
   windowStop <- windowStart + windowSize
   
   #Remove windows whose stop positions fall past the chromosome length 
-  windowStart <- windowStart[which(windowStop < chromLength)]
-  windowStop <- windowStop[which(windowStop < chromLength)]
+  windowStart <- windowStart[which(windowStop < chrLength)]
+  windowStop <- windowStop[which(windowStop < chrLength)]
   
-  #Store in dataframe start, stop and mid positions for each window
-  windows <- data.frame(start = windowStart, stop = windowStop, 
-                        mid = windowStart + (windowStop-windowStart)/2)
+  #Store in data frame start, stop and mid positions for each window
+  SNPindex.windows <- data.frame(start = windowStart, stop = windowStop, 
+                                 mid = windowStart + (windowStop-windowStart)/2)
   
+  # ---------------- Apply sliding window to calculate mean SNP-index -----------------
   #Add new columns to store mean SNP-index (both wild-type and mutant) relative to each window
-  windows$mean_SNPindex.WT <- NA
-  windows$mean_SNPindex.M <- NA
+  SNPindex.windows$mean_SNPindex.WT <- NA
+  SNPindex.windows$mean_SNPindex.M <- NA
   
-  #Filter dataframe by chromosome
-  df.chrom <- df %>% filter(ChromKey==(Chrom+1))
+  #Filter data frame by chosen chromosome
+  if (length(grep(chrID, chrList)) != 0) { #True if a correct chromosome ID is entered
+    df.chr <- vcf.df.SNPindex.filt %>% dplyr::filter(ChromKey==grep(chrID, chrList))
+  }
+  else {
+    #Stop program if an incorrect chromosome ID was entered
+    stop("The entered 'chrID' was not found in the VCF file. Please, enter a correct one.")
+  }
   
-  for (n in 1:nrow(windows)) {
-    #Restrict dataframe to rows whose positions are between the start and stop of the dataframe
-    df.window <- df.chrom[which(df.chrom$POS >= windows$start[n] & df.chrom$POS <= windows$stop[n]),]
+  
+  for (n in 1:nrow(SNPindex.windows)) {
+    #Restrict data frame to rows whose positions are between the start and stop of the data frame
+    df.window <- df.chr[which(df.chr$POS >= SNPindex.windows$start[n] & df.chr$POS <= SNPindex.windows$stop[n]),]
     
-    #Calculate mean SNPindex of the variants in that window
+    #Calculate mean SNP-index of the variants in that window
     mean_SNPindex.WT <- mean(df.window$SNPindex.WT)
     mean_SNPindex.M <- mean(df.window$SNPindex.M)
     
@@ -50,9 +85,9 @@ slidingWindow <- function(Chrom, chromLength, windowSize, windowStep, df){
     if (is.nan(mean_SNPindex.M)) {mean_SNPindex.M <- 0.5}
     
     #Set corresponding mean SNP-index of each row
-    windows$mean_SNPindex.WT[n] <- mean_SNPindex.WT
-    windows$mean_SNPindex.M[n] <- mean_SNPindex.M
+    SNPindex.windows$mean_SNPindex.WT[n] <- mean_SNPindex.WT
+    SNPindex.windows$mean_SNPindex.M[n] <- mean_SNPindex.M
   }
   
-  return(windows)
+  return(SNPindex.windows)
 }
