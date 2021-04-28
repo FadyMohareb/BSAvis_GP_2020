@@ -25,14 +25,14 @@ BSAvis is a flexible, user-friendly package built for Bulk Segregant Analyses (B
 # Prerequisites
 R and RStudio integrated development environment (IDE) (version >=3.6.1) are required to run BSAvis. <br>
 
-•	[RStudio](https://www.rstudio.com/products/rstudio/download/ "RStudio") (free version)
-•	[R](https://cran.r-project.org "R") 
+- [RStudio](https://www.rstudio.com/products/rstudio/download/ "RStudio") (free version) <br>
+- [R](https://cran.r-project.org "R") 
 
 BSAvis package requires merged Variant Calling Format (`VCF`) files as input files, generated using `GATK4`.<br> For best results from the BSAvis package, the following sample scripts are recommended:
 - [Alignment Steps](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/QC_Alignment_VC/alignment_variantCalling/steps/alignment_steps.txt "Alignment Steps")
 - [Variant Calling Steps](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/QC_Alignment_VC/alignment_variantCalling/steps/variantCalling_steps.txt "Variant Calling Steps")
 
-Be aware that the `AD` (Allelic Depth) column needs to be included inside the `VCF` file, therefore previous versions to `GATK4` are not recommended. <br> Joint genotyping is also required to obtain a single `VCF` file that includes variants from both bulks. 
+Be aware that the `AD` (Allelic Depth) column needs to be included inside the `VCF` file (obtained using `GATK4`). Previous versions to this are, therefore, not recommended. <br> Joint genotyping is also required to obtain a single `VCF` file that includes variants from both bulks. 
 
 **This tool was tested and run both on Windows and MacOS.**
 
