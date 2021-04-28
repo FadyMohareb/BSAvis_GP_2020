@@ -1,5 +1,5 @@
 # BSAvis Plots
-Plots generated using the BSAvis package.
+Plots generated using BSAvis.
 
 # SNP-index Method - Dataset One
 Peaks were detected on **chromosome 3**.

@@ -23,8 +23,10 @@ BSAvis is a flexible, user-friendly package built for Bulk Segregant Analyses (B
 
 
 # Prerequisites
-RStudio integrated development environment (IDE) is required to run BSAvis.<br>
-In case it is not already installed on your computer, [click here](https://www.rstudio.com/products/rstudio/download/ "Download RStudio") to download it.
+R and RStudio integrated development environment (IDE) (version >=3.6.1) are required to run BSAvis. <br>
+
+•	[RStudio](https://www.rstudio.com/products/rstudio/download/ "RStudio") (free version)
+•	[R](https://cran.r-project.org "R") 
 
 BSAvis package requires merged Variant Calling Format (`VCF`) files as input files, generated using `GATK4`.<br> For best results from the BSAvis package, the following sample scripts are recommended:
 - [Alignment Steps](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/QC_Alignment_VC/alignment_variantCalling/steps/alignment_steps.txt "Alignment Steps")
@@ -32,15 +34,17 @@ BSAvis package requires merged Variant Calling Format (`VCF`) files as input fil
 
 Be aware that the `AD` (Allelic Depth) column needs to be included inside the `VCF` file, therefore previous versions to `GATK4` are not recommended. <br> Joint genotyping is also required to obtain a single `VCF` file that includes variants from both bulks. 
 
+**This tool was tested and run both on Windows and MacOS.**
+
 # Documentation
 A brief step-by-step process on how to run BSAvis is included on this page, using testing files. However, please refer to the [User Manual](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/user_manual_BSAvis.pdf "BSAvis User Manual") and [Technical Documentation]() for a better understanding of the implemented functions.
 
-# Testing files
+# Testing
 The following testing files have been provided:
-* `test.RData` ([here](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/test.RData))
-* `test.vcf` ([here](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/test.vcf))
+* `test.RData`
+* `test.vcf` 
 
-Note that `test.RData` can be downloaded directly by clicking on the "download" button ([on this page](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/test.RData)). The actual `VCF` file can be obtained only after downloading and unzipping the full repository (click on the green "Code" button at the top-right corner of this repository and select "Download ZIP"). Refer to the [User Manual](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/user_manual_BSAvis.pdf "BSAvis User Manual") for guidance.
+Note that `test.RData` can be downloaded directly by clicking on the "download" button ([on this page](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/test.RData)). The actual `VCF` file can be obtained only after downloading and unzipping the full repository (click on the green "Code" button at the top-right corner of this repository and select "Download ZIP"). <br> Refer to the [User Manual](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/user_manual_BSAvis.pdf "BSAvis User Manual") for guidance.
 
 # BSAvis Dependencies
 Before downloading the BSAvis package and to avoid encountering issues, it is strongly recommended to ensure having the following libraries installed and loaded on RStudio: `vcfR`, `ggplot2`, `dplyr`, `tidyr`and `devtools`.
