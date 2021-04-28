@@ -40,7 +40,7 @@ The following testing files have been provided:
 * `test.RData` ([here](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/test.RData))
 * `test.vcf` ([here](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/test.vcf))
 
-The zipped folder (`BSAvis.zip`) containing the testing filed can be downloaded direcly from [here](https://drive.google.com/u/0/uc?export=download&confirm=jwC_&id=1vTiYoS02eR1ImPq7amMX2VKELNxW3YHc "BSAvis Testing Files").
+Note that `test.RData` can be downloaded directly by clicking on the "download" button ([on this page](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/test.RData)). The actual `VCF` file can be obtained only after downloading and unzipping the full repository (click on the green "Code" button at the top-right corner of this repository and select "Download ZIP"). Refer to the [User Manual](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/user_manual_BSAvis.pdf "BSAvis User Manual") for guidance.
 
 # BSAvis Dependencies
 Before downloading the BSAvis package and to avoid encountering issues, it is strongly recommended to ensure having the following libraries installed and loaded on RStudio: `vcfR`, `ggplot2`, `dplyr`, `tidyr`and `devtools`.
