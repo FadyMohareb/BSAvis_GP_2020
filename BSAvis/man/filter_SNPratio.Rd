@@ -16,10 +16,14 @@ filter_SNPratio(vcf.df.SNPratio, min.SNPratio = 0.1, min.DP = 50, max.DP = 200)
 \item{max.DP}{max value allowed for the read depth (default=200)}
 }
 \value{
-Filtered bulks for the SNP-ratio method (type: data frame)
+Data frame containing filtered variant information.
 }
 \description{
-This function allows to filter variants for the SNP-ratio method.
+This functions allows to filter out bulk variants stored inside the data frame (returned by the calc_SNPratio() function) which do not fall between the 
+minimumSNP-index, minimum DP and maximum DP.
+}
+\details{
+Variants in the data frame returned by calc_SNPratio() with SNP-ratio values less below the minimum SNP-ratio value, as well as variants which do not fall between the given (or default) minimum and maximum DP values in both bulks, are discarded and removed from the final data frame returned by the function.
 }
 \examples{
 ## Default parameters

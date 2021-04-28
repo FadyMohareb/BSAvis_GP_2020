@@ -1,10 +1,8 @@
 #Plot SNP-ratio
 
 #' @title Plot SNP-ratio
-#' @description This function allows plotting the SNP-ratio (\emph{Wachsman et al., 2017}).
-#' The SNP-ratio gets filtered by the minimum SNP-ratio value (set by the user), before performing LOESS smoothing.
-#' The plot gets generated based on the chromosome location of each SNP against the LOESS-fitted SNP-ratio.
-#' Whenever the DPI parameter gets specified, the plot will be saved in .TIF format with the specified resolution (dpi value).
+#' @description This function allows plotting the SNP-ratio values across positions of a specified chromosome.
+#' By setting the dpi parameter (resolution), the plot will be automatically saved in .TIF format.
 #' 
 #' \strong{Note:} \emph{for journal publications the preferred format is .TIF, and the minimum resolution is of 600 dpi or 1200 dpi. 
 #' Always refer to journal-specific guidelines.}
@@ -24,6 +22,15 @@
 #' @param width width value (default=7.5)
 #' @param height height value (default=5)
 #' @param units size units (default="in")
+#'
+#' @details The data frame returned by filter_SNPratio() is filtered by the input chromosome to restrict the data frame to the variants specific to the chosen chromosome. 
+#' LOESS regression is then applied to the chromosome positions and SNP-ratio values, to smooth the resulting line.  
+#' Degree and span parameters of the LOESS regression can be specified in the function arguments. 
+#' If no values are specified, the default degree and span values will be applied. The smoothed SNP-ratio values are plotted against the chromosome position in a line plot. 
+#'
+#' A cut-off line is included in the plot (equivalent to the minimum SNP-ratio required). If  the dpi argument is not specified, the plot will be shown in the plot panel; 
+#' Conversely, by setting the dpi parameter, the graph will be saved in TIFF format. Additionally, the name with which to save the file, the directory, the height and width of the plot and their units can be customised as well. 
+#' The plot will be saved with default values if different ones are not specified.
 #'
 #' @importFrom dplyr %>%
 #' @export plot_SNPratio 

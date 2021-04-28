@@ -46,4 +46,13 @@ shiny_SNPratio(
 }
 \description{
 Please note that this function is not to be run manually.
+Wrapper function for SNP-ratio plots specific to the R-shiny application. 
+Calls all functions involved in plotting the SNP-ratio values across chromosome positions.
+}
+\details{
+Wrapper function for generting SNP-ratio plots inside the R-Shiny application.
+The involved functions are the following (in oder): 
+calc_SNPratio(), filter_SNPratio(), extract_chrIDs() and shinyPlot_SNPratio().
+
+This function is not intended to be run by the user, as it was specifically created to be used by the BSAvis_shiny() function.
 }

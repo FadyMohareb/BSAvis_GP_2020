@@ -1,6 +1,7 @@
 #Filter SNP-index variants 
 #' @title Filter SNP-index Variants 
-#' @description This function allows to filter variants for the SNP-index method.
+#' @description This function filters out variants in the data frame returned by the calc_SNPindex() function 
+#' which  do not  fall  between minimum DP, maximum DP, minimum SNP-index, maximum SNP-index, and minimum GQ for both bulks (wild-type and mutant).
 #'
 #' @param vcf.df.SNPindex vcf dataframe
 #' @param min.SNPindex min value allowed for the SNP index (default=0.3)
@@ -9,7 +10,13 @@
 #' @param max.DP max value allowed for the read depth (default=200)
 #' @param min.GQ min value allowed for the genotype quality (default=99)
 #'
-#' @return Filtered bulks for the SNP-index method (type: data frame)
+#' @return data frame containing variant and SNP-index information on variants that passed the filtering process.
+#'
+#' @details Variants from the data frame returned by the calc_SNPindex() function 
+#' are filtered out based on the following criteria:
+#' minimum DP, maximum DP, minimum SNP-index, maximum SNP-index, and minimum GQ. 
+#'
+#' Variants must pass these filters in both bulks to be retained.
 #'
 #' @importFrom dplyr %>%
 #' @export filter_SNPindex

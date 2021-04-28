@@ -1,7 +1,9 @@
-#Shiny: NP-index wrapper function
+#Shiny: SNP-index wrapper function
 
 #' @title SNP-index Wrapper Function
 #' @description Please note that this function is not to be run manually.
+#' Wrapper function for SNP-index plots specific to the R-shiny application. 
+#' Calls all functions involved in plotting the mean SNP-index values from both bulks (or just one of them) against the mid position of the corresponding window of a specific chromosome.
 #'
 #' @param vcf.list object containing meta information and vcf data frame
 #' @param wtBulk Wild-Type pool
@@ -19,6 +21,10 @@
 #' @param bulk bulk/bulks to take into consideration
 #' @param ranges axes ranges (x,y)
 #' 
+#' @details Wrapper function for generating the SNP-index plots, inside the R-Shiny application.
+#' The involved functions are the following (in oder): calc_SNPindex(), filter_SNPindex(), extract_chrIDs(), slidingWindow() and shinyPlot_SNPindex().
+#' 
+#' This function is not intended to be run by the user, as it was specifically created to be used by the BSAvis_shiny() function.
 #' @importFrom dplyr %>%
 #' @export shiny_SNPindex
 

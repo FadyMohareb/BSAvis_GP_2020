@@ -16,15 +16,28 @@ calc_SNPindex(vcf.df, wtBulk, mBulk, variants = "SNP")
 \item{variants}{variants to be considered. Default is "SNP" (allowed: "SNP" or "all")}
 }
 \value{
-A dataframe with the joint bulks
+Data frame containing variand and SNP-index information for each bulk.
 }
 \description{
-This function is used to sparate (filter) the two bulks, and calculate their (SNP index) as follows:
+This function calculates, for both wild-type and mutant bulks, the SNP-index value of each variant stored inside the data frame (returned by the readBSA_vcf() function), 
+applying the following formula:
 \deqn{SNPindex=AD_alt/(AD_ref + AD_alt)} 
 Bulks get joined together in a single data frame.
 
 Note that the user can select specific variants to consider, 
 by setting the "variants" parameter to "SNP" (default) or "all" (InDels+SNPs).
+}
+\details{
+The data frame returned by readBSA_vcf() is filtered by bulk ID to create two separate data frames: 
+one specific to the wild-type bulk variants information and other one specific to the mutant bulk variants information.
+For every variant in each data frame, the SNP-index value gets calculated and added as a new column.
+
+In the instance that the type of variants to be considered is set to "SNP",the variants corresponding to InDel sare discarded.  
+The rows containing more than three characters in the GT_alleles column (e.g.,"T/AT"corresponds to an insertion and contains 4 characters) 
+or containing three characters but one of them being "*", meaning a deletion, are removed from the data frame. 
+
+Both dataframes are then joined by same chromosome and position to ensure that all the merged rows contain information on the same genomic position.
+This data frame is returned by the function
 }
 \examples{
 ## Calculate SNP-index for both bulks (only SNPs will be considered)

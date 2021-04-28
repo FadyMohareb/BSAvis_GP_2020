@@ -27,10 +27,18 @@ filter_SNPindex(
 \item{min.GQ}{min value allowed for the genotype quality (default=99)}
 }
 \value{
-Filtered bulks for the SNP-index method (type: data frame)
+data frame containing variant and SNP-index information on variants that passed the filtering process.
 }
 \description{
-This function allows to filter variants for the SNP-index method.
+This function filters out variants in the data frame returned by the calc_SNPindex() function 
+which  do not  fall  between minimum DP, maximum DP, minimum SNP-index, maximum SNP-index, and minimum GQ for both bulks (wild-type and mutant).
+}
+\details{
+Variants from the data frame returned by the calc_SNPindex() function 
+are filtered out based on the following criteria:
+minimum DP, maximum DP, minimum SNP-index, maximum SNP-index, and minimum GQ. 
+
+Variants must pass these filters in both bulks to be retained.
 }
 \examples{
 ## Default parameters

@@ -1,13 +1,16 @@
 #Filter SNP-ratio variants 
 #' @title Filter SNP-index Variants 
-#' @description This function allows to filter variants for the SNP-ratio method.
+#' @description This functions allows to filter out bulk variants stored inside the data frame (returned by the calc_SNPratio() function) which do not fall between the 
+#' minimumSNP-index, minimum DP and maximum DP. 
 #'
 #' @param vcf.df.SNPratio vcf dataframe
 #' @param min.SNPratio min value allowed for the SNP index (default=0.1)
 #' @param min.DP min value allowed for the read depth (default=50)
 #' @param max.DP max value allowed for the read depth (default=200)
 #'
-#' @return Filtered bulks for the SNP-ratio method (type: data frame)
+#' @return Data frame containing filtered variant information.
+#'
+#' @details Variants in the data frame returned by calc_SNPratio() with SNP-ratio values less below the minimum SNP-ratio value, as well as variants which do not fall between the given (or default) minimum and maximum DP values in both bulks, are discarded and removed from the final data frame returned by the function.
 #'
 #' @importFrom dplyr %>%
 #' @export filter_SNPratio

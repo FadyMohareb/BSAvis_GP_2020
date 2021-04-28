@@ -1,7 +1,8 @@
 #Calculate SNP-index
 
 #' @title Calculate SNP-index
-#' @description This function is used to sparate (filter) the two bulks, and calculate their (SNP index) as follows:
+#' @description This function calculates, for both wild-type and mutant bulks, the SNP-index value of each variant stored inside the data frame (returned by the readBSA_vcf() function), 
+#' applying the following formula:
 #' \deqn{SNPindex=AD_alt/(AD_ref + AD_alt)} 
 #' Bulks get joined together in a single data frame.
 #' 
@@ -13,7 +14,18 @@
 #' @param mBulk Mutant pool 
 #' @param variants variants to be considered. Default is "SNP" (allowed: "SNP" or "all")
 #'
-#' @return A dataframe with the joint bulks
+#' @return Data frame containing variand and SNP-index information for each bulk.
+#'
+#' @details The data frame returned by readBSA_vcf() is filtered by bulk ID to create two separate data frames: 
+#' one specific to the wild-type bulk variants information and other one specific to the mutant bulk variants information.
+#' For every variant in each data frame, the SNP-index value gets calculated and added as a new column.
+#' 
+#' In the instance that the type of variants to be considered is set to "SNP",the variants corresponding to InDel sare discarded.  
+#' The rows containing more than three characters in the GT_alleles column (e.g.,"T/AT"corresponds to an insertion and contains 4 characters) 
+#' or containing three characters but one of them being "*", meaning a deletion, are removed from the data frame. 
+#' 
+#' Both dataframes are then joined by same chromosome and position to ensure that all the merged rows contain information on the same genomic position.
+#' This data frame is returned by the function
 #'
 #' @export calc_SNPindex
 #' @examples

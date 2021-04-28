@@ -7,16 +7,23 @@
 readBSA_vcf(file)
 }
 \arguments{
-\item{file}{vcf file}
+\item{file}{VCF file containing wild-type and mutant pools as samples, which must include the AD column.}
 }
 \value{
-a list containing meta information
+a list containing a character vector (with meta information) and a data frame (with variant information).
 }
 \description{
 This function allows to read a vcf file, converting it into a data frame. 
-Format fields get separated as follows: AD, DP, GQ, GT. 
+Format fields get separated as follows: AD, DP, GQ, GT and GT_alleles. 
 
 Allelic depths (AD) get split into reference and alterate AD values ("AD_ref" and "AD_alt").
+}
+\details{
+Using the vcf R package, a VCF file is read and convertedinto a data frame containing the followingc olumns:
+chromosome, position, individual (sample ID in the VCF file), reference AD, alternate AD, DP, GQ, GT, and GT_alleles. 
+The meta information of the VCF file is also extracted. 
+The output is a list containing two elements: meta information and the mentioned dataframe
+'
 }
 \examples{
 ## Read vcf file

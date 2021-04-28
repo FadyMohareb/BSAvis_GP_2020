@@ -1,7 +1,7 @@
 #delta(SNP-index): wrapper function
 
 #' @title delta(SNP-index) Wrapper Function
-#' @description This function is used to fully run the delta(SNP-index) method.
+#' @description This wrapper function is used to fully run the delta(SNP-index) method, by calling all the funcitons involved in plotting the delta(SNP-index) values from each bulk against the mid position of the corresponding window of a specific chromosome. 
 #'
 #' \deqn{mean_M_SNPindex - mean_WT_SNPindex.WT}
 #'
@@ -25,6 +25,10 @@
 #' @param height height value (default=5)
 #' @param units size units (default="in")
 #' 
+#' @details Wrapper function that sequentially calls the required functions involved in generating the delta(SNP-index) plot:
+#' calc_SNPindex(), filter_SNPindex(), extract_chrIDs(), slidingWindow(), calc_deltaSNPindex() and plot_deltaSNPindex(). 
+#' The resulting plot will show (for each bulk) mean SNP-index values against the mid position of the corresponding window of a specific chromosome.
+#'
 #' @importFrom dplyr %>%
 #' @export deltaSNPindex_plot
 #' @examples

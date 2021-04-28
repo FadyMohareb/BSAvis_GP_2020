@@ -15,4 +15,12 @@ shinyPlot_deltaSNPindex(vcf.df.window.delta, chr, ranges)
 }
 \description{
 Please note that this function is not to be run manually.
+Creates plots specific to the R-shiny application, showing the delta(SNP-index) values against the mid position of the corresponding window of a specific chromosome.
+}
+\details{
+This function is a variant of the plot_deltaSNPindex() function created to meet the needs of the R-shiny application.
+The difference with the original is that it includes a "ranges" argument that allows setting the limits of the x and y-axis, to show a zoomed area of the delta(SNP-index) plot when selected. 
+If no area is selected, the x and y axis limits will be set to null, showing the entire plot.
+
+This function does not include any arguments related to plot saving since this functionality is linked to a saving button found inside the BSAvis R-Shiny application.
 }

@@ -2,6 +2,7 @@
 
 #' @title Shiny: Plot SNP-ratio 
 #' @description Please note that this function is not to be run manually.
+#' Creates plots specific to the R-shiny application, showing SNP-ratio values against the position of a specific chromosome.
 #' 
 #' @param vcf.df.SNPratio.filt filtered data frame (containing both bulks)
 #' @param chrList list of chromosome IDs
@@ -11,6 +12,12 @@
 #' @param degree LOESS smoothing degree (default=2)
 #' @param span LOESS smoothing span (default=0.07)
 #' @param ranges axes ranges (x,y)
+#'
+#' @details This function is a variant of the plot_SNPratio() function created to meet the needs of the R-shiny application.
+#' The difference with the original is that it includes a "ranges" argument that allows setting the limits of the x and y-axis, to show a zoomed area of the SNP-ratio plot when selected. 
+#' If no area is selected, the x and y axis limits will be set to null, showing the entire plot.
+#'
+#' This function does not include any arguments related to plot saving since this functionality is linked to a saving button found inside the BSAvis R-Shiny application.
 #'
 #' @importFrom dplyr %>%
 #' @export shinyPlot_SNPratio 

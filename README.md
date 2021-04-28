@@ -61,7 +61,7 @@ To install the BSAvis package, run the following commands:
 
 ```R
 #Install BSAvis from GitHub
-devtools::install_github("EG-lisy/BSAvis")
+devtools::install_github("FadyMohareb/BSAvis_GP_2020/BSAvis")
 
 #Load BSAvis
 library(BSAvis)

@@ -60,9 +60,14 @@ SNPratio_plot(
 \item{units}{size units (default="in")}
 }
 \description{
-This function is used to fully run the SNP-ratio method.
+This wrapper function is used to fully run the SNP-ratio method, by calling all the funcitons involved in plotting the SNP-ratio values across positions of a specific chromosome.
 
 \deqn{SNPindex=AD_alt/(AD_ref + AD_alt)}
+}
+\details{
+Wrapper function that sequentially calls the required functions involved in generating the SNP-ratio plot:
+calc_SNPratio(), filter_SNPratio(), extract_chrIDs() and plot_SNPratio().
+The resulting plot will show SNP-ratio values (for both bulks) across chromosome positions.
 }
 \examples{
 ## Use default values WITHOUT saving the plot

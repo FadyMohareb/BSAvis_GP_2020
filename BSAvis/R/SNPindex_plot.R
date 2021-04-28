@@ -1,7 +1,7 @@
 #SNP-index: wrapper function
 
 #' @title SNP-index Wrapper Function
-#' @description This function is used to fully run the SNP-index method.
+#' @description This wrapper function is used to fully run the SNP-index method, by calling all the funcitons involved in plotting the mean SNP-index values from each bulk against the mid position of the corresponding window of a specific chromosome. 
 #'
 #' \deqn{SNPindex=AD_alt/(AD_ref + AD_alt)} 
 #'
@@ -25,6 +25,10 @@
 #' @param height height value (default=5)
 #' @param units size units (default="in")
 #' 
+#' @details Wrapper function that sequentially calls the required functions involved in generating the SNP-index plot:
+#' calc_SNPindex(), filter_SNPindex(), extract_chrIDs(), slidingWindow() and plot_SNPindex(). 
+#' The resulting plot will show (for each bulk) mean SNP-index values against the mid position of the corresponding window of a specific chromosome.
+#'
 #' @importFrom dplyr %>%
 #' @export SNPindex_plot
 #' @examples

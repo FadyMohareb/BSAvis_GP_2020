@@ -66,9 +66,14 @@ deltaSNPindex_plot(
 \item{units}{size units (default="in")}
 }
 \description{
-This function is used to fully run the delta(SNP-index) method.
+This wrapper function is used to fully run the delta(SNP-index) method, by calling all the funcitons involved in plotting the delta(SNP-index) values from each bulk against the mid position of the corresponding window of a specific chromosome. 
 
 \deqn{mean_M_SNPindex - mean_WT_SNPindex.WT}
+}
+\details{
+Wrapper function that sequentially calls the required functions involved in generating the delta(SNP-index) plot:
+calc_SNPindex(), filter_SNPindex(), extract_chrIDs(), slidingWindow(), calc_deltaSNPindex() and plot_deltaSNPindex(). 
+The resulting plot will show (for each bulk) mean SNP-index values against the mid position of the corresponding window of a specific chromosome.
 }
 \examples{
 ## Use default values WITHOUT saving the plot

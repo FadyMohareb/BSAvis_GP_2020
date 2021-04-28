@@ -1,7 +1,7 @@
 #Plot delta(SNP Index)
 #' @title Plot delta(SNP index)
-#' @description This function allows plotting delta(SNP Index).
-#' Whenever the DPI parameter gets specified, the plot will be saved in .TIF format with the specified resolution (dpi value).
+#' @description This function allows plotting the delta(SNP-index) values against the mid position of the corresponding window of a specific chromosome. 
+#' By setting the dpi parameter (resolution), the plot will be automatically saved in .TIF format.
 #' 
 #' \strong{Note:} \emph{for journal publications the preferred format is .TIF, and the minimum resolution is of 600 dpi or 1200 dpi. 
 #' Always refer to journal-specific guidelines.}
@@ -14,6 +14,10 @@
 #' @param width width value (default=7.5)
 #' @param height height value (default=5)
 #' @param units size units (default="in")
+#'
+#' @details ∆(SNP-index) values are plotted against window mid position in a ggplot2line plot. If the dpi argument is not passed, the plot will be shown in the plot panel; however, if a value is added to the dpi argument, the graph will be saved in TIFF format. 
+#' Additionally, the name with which to save the file, the directory, the height and width of the plot and their units can be specified in the arguments. 
+#' The plot will be saved with default values if different ones are not specified.
 #'
 #' @export plot_deltaSNPindex
 #' @examples

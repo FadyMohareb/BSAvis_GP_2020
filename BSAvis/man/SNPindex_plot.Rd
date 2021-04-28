@@ -66,9 +66,14 @@ SNPindex_plot(
 \item{units}{size units (default="in")}
 }
 \description{
-This function is used to fully run the SNP-index method.
+This wrapper function is used to fully run the SNP-index method, by calling all the funcitons involved in plotting the mean SNP-index values from each bulk against the mid position of the corresponding window of a specific chromosome. 
 
 \deqn{SNPindex=AD_alt/(AD_ref + AD_alt)}
+}
+\details{
+Wrapper function that sequentially calls the required functions involved in generating the SNP-index plot:
+calc_SNPindex(), filter_SNPindex(), extract_chrIDs(), slidingWindow() and plot_SNPindex(). 
+The resulting plot will show (for each bulk) mean SNP-index values against the mid position of the corresponding window of a specific chromosome.
 }
 \examples{
 ## Use default values WITHOUT saving the plot

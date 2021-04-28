@@ -2,12 +2,26 @@
 
 #' @title Shiny: Plot SNP-indices
 #' @description Please note that this function is not to be run manually.
+#' Creates plots specific to the R-shiny application, showing (for each bulk, or just one of them) the mean SNP-index values against the mid position of the corresponding window of a specific chromosome.
 #' 
 #' @param SNPindex.windows filtered data frame (containing both bulks)
 #' @param chr chrosome ID
 #' @param bulk bulk/bulks to take into consideration when plotting
 #' @param ranges axes ranges (x,y)
 #' 
+#' @details This function is a variant of the plot_SNPindex() function created to meet the needs of the R-shiny application.
+#' Firstly, a ggplot object is created with all the necessary plotting elements, exept for the lines specific for each bulk (corresponding to mean SNP-index against the mid position of the corresponding window of a specific chromosome).
+#' Based on the value of the bulk argument, a SNP-index line/s will be added to the previously created ggplotobject. 
+#'
+#' If bulk=0, two lines corresponding to the SNP-indices of both wild-type and mutant bulks will be added.
+#' If bulk=1 or bulk=2, a single line will be added to the plot, respectively corresponding to the wild-type or mutant bulk SNP-indices.
+#' 
+#' The value of the bulk parameter will be set inside the R-shiny application function (BSAvis_shiny()) depending on the user's interactive-input.
+#' Additionally, this function includes a "ranges" argument that allows setting the limits of the x and y-axis, to show a zoomed area of the SNP-index plot when selected. 
+#' If no area is selected, the x and y axis limits will be set to null, showing the entire plot.
+#'
+#' This function does not include any arguments related to plot saving since this functionality is linked to a saving button found inside the BSAvis R-Shiny application.
+#'
 #' @export shinyPlot_SNPindex
 
 shinyPlot_SNPindex <- function(vcf.df.window.SNPindex, chr, bulk, ranges) {
