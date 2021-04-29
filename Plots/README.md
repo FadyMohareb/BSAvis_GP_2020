@@ -20,9 +20,11 @@ The most obvious peak was detected on **chromosome 7**.<br> Smaller peaks were d
 ![delta(SNP Index)](ds2_deltaSNPindex.png)
 
 # SNP-ratio Method - Dataset One
+Peaks were detected on **chromosome 3**.
 ### degree=2 span=0.07
 ![SNP-ratio](ds1_SNPratio.png)
 
 # SNP-ratio Method - Dataset Two
+The most obvious peak was detected on **chromosome 7**.<br> Smaller peaks were detected on **chromosomes 3** and **4**.
 ### degree=2 span=0.07
 ![SNP-ratio](ds2_SNPratio.png)
