@@ -23,6 +23,7 @@ BSAvis is a flexible, user-friendly package built for Bulk Segregant Analyses (B
 
 
 # Prerequisites
+BSAvis is compatible for being run on either MacOS or Windows Operating System.<br>
 R and RStudio integrated development environment (IDE) (version >=3.6.1) are required to run BSAvis. <br>
 
 - [RStudio](https://www.rstudio.com/products/rstudio/download/ "RStudio") (free version) <br>
