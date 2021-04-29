@@ -52,7 +52,7 @@ plot_SNPindex <- function(SNPindex.windows, chr, filename=paste0("plot_SNPindex_
     ggplot2::ylim(0, 1) + 
     ggplot2::xlab("Position (Mb)") + 
     ggplot2::ylab("SNP-index") +
-    ggplot2::labs(title = paste("chrosome", chr)) + 
+    ggplot2::labs(title = paste("Chromosome", chr)) + 
     ggplot2::theme(legend.title = element_blank())
   
   if(missing(dpi)){
