@@ -1,2 +1,2 @@
 # Plots generated from existing tools
-QTLseqr (https://github.com/bmansfeld/QTLseqr) and bsaR (https://github.com/xuzhougeng/bsaR) were run to generate plots for both datasets, which will be used as reference/for comparison matters.
+QTLseqr (https://github.com/bmansfeld/QTLseqr) and bsaR (https://github.com/xuzhougeng/bsaR) were run to generate reference plots for the datasets used during the development of BSAvis, for comparison matters.
