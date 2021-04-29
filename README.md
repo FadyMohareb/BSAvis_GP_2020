@@ -345,7 +345,7 @@ To begin, the user is required to manually install and load the required librari
 1.	Install the required libraries using the following command: 
 
 ```R
-install.packages(c("shiny", "shinycssloaders", "shinyalert")
+install.packages(c("shiny", "shinycssloaders", "shinyalert"))
 ```
 
 Be patient and proceed only after the installation is completed.
