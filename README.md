@@ -1,5 +1,5 @@
 ![BSAvis logo](BSAvis_small_logo.png)<br>
-BSAvis is a flexible, user-friendly package built for Bulk Segregant Analyses (BSA), capable of generating publication-quality plots.
+BSAvis is a flexible, user-friendly package built for Bulk Segregant Analyses (BSA) to identify possible causal regions related  to specific traits of interest, and capable of generating publication-quality plots. 
 
 ## Table of Contents
 > - [Prerequisites](#Prerequisites)<br>
@@ -197,7 +197,7 @@ units="in")
 For all functions listed above, please note that:
 
 - The minimum required parameters are: `vcf.list`, `wtBulk`, `mBulk`, `chrID` and `chr`
-- `filename`, `path`, `width`, `height` and `units` are all part of the plot-saving functionality and are directly linked with the `dpi` parameter. Without setting `dpi`, all the parameters highlighted in blue will be ignored
+- `filename`, `path`, `width`, `height` and `units` are all part of the plot-saving functionality and are directly linked with the `dpi` parameter. Without setting `dpi`, all the previously mentioned ones will be ignored
 - Some parameters are already set to default but can be customized
 - To properly implement the function, please refer to the [Technical Documentation]() or inspect the [help pages](#Installing-BSAvis) of each function on RStudio 
 
