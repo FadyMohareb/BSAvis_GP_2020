@@ -1,5 +1,5 @@
 ![BSAvis logo](BSAvis_small_logo.png)<br>
-BSAvis is a flexible, user-friendly package built for Bulk Segregant Analyses (BSA) to identify possible causal regions related  to specific traits of interest, and capable of generating publication-quality plots. 
+BSAvis is a flexible, user-friendly package built for Bulk Segregant Analyses (BSA), capable of generating publication-quality plots to visualise and identify possible causal regions related to a specific trait of interest (genetic mutation).
 
 ## Table of Contents
 > - [Prerequisites](#Prerequisites)<br>
