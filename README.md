@@ -1,5 +1,5 @@
 ![BSAvis logo](BSAvis_small_logo.png)<br>
-BSAvis is a flexible, user-friendly package built for Bulk Segregant Analyses (BSA), capable of generating publication-quality plots to visualise and identify possible causal regions related to a specific trait of interest (genetic mutation).
+BSAvis is a flexible, user-friendly package built for Bulk Segregant Analyses (BSA), capable of generating publication-quality plots to visualise and identify possible causal regions related to traits of interest in bulks expressing contrasting phenotypes.
 
 ## Table of Contents
 > - [Prerequisites](#Prerequisites)<br>
@@ -38,7 +38,7 @@ Be aware that the `AD` (Allelic Depth) column needs to be included inside the `V
 **This tool was tested and run both on Windows and MacOS.**
 
 # Documentation
-A brief step-by-step process on how to run BSAvis is included on this page, using testing files. However, please refer to the [User Manual](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/user_manual_BSAvis.pdf "BSAvis User Manual") and [Technical Documentation]() for a better understanding of the implemented functions.
+A brief step-by-step process on how to run BSAvis is included on this page, using testing files. However, please refer to the [User Manual](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/user_manual_BSAvis.pdf "BSAvis User Manual") and [Technical Documentation](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/technical_documentation_BSAvis.pdf "Technical Documentation") for a better understanding of the implemented functions.
 
 # Test Files
 The following testing files have been provided:
@@ -199,7 +199,7 @@ For all functions listed above, please note that:
 - The minimum required parameters are: `vcf.list`, `wtBulk`, `mBulk`, `chrID` and `chr`
 - `filename`, `path`, `width`, `height` and `units` are all part of the plot-saving functionality and are directly linked with the `dpi` parameter. Without setting `dpi`, all the previously mentioned ones will be ignored
 - Some parameters are already set to default but can be customized
-- To properly implement the function, please refer to the [Technical Documentation]() or inspect the [help pages](#Installing-BSAvis) of each function on RStudio 
+- To properly implement the function, please refer to the [Technical Documentation](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/technical_documentation_BSAvis.pdf "Technical Documentation") or inspect the [help pages](#Installing-BSAvis) of each function on RStudio 
 
 # Stepwise BSA and Plotting
 Functions included in this section will apply the chosen BSA method and return the plots to the user in a multistep process, conversely to the previous section which describes the process for a simple combined functionality approach to BSA and plotting.<br>
@@ -209,7 +209,7 @@ All of the included examples refer have been applied to the **testing dataset**.
 **Important notes** 
 - be sure to have run the `readBSA_vcf()`function before moving on
 - some parameters are already set to default but can be customized
-- to properly implement the functions, please refer to the [Technical Documentation]() or directly inspect the help pages on RStudio.
+- to properly implement the functions, please refer to the [Technical Documentation](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/technical_documentation_BSAvis.pdf "Technical Documentation") or directly inspect the help pages on RStudio.
 
 ## SNP-index/∆(SNP-index) Method
 1.	Calculate SNP-indices for both bulks using the `calc_SNPindex()` function

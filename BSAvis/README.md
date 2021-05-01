@@ -1,5 +1,5 @@
 # BSAvis Package
-Please refer to the [User Manual](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/user_manual_BSAvis.pdf "BSAvis User Manual") and [Technical Documentation]("Technical Documentation") for a better understanding of the package.
+Please refer to the [User Manual](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/user_manual_BSAvis.pdf "BSAvis User Manual") and [Technical Documentation](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/technical_documentation_BSAvis.pdf "Technical Documentation") for a better understanding of the package.
 
 ```R
 #Install BSAvis package
