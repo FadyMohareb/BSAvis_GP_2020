@@ -130,8 +130,8 @@ A step-by-step approach to BSA and plotting is also included (see next section).
 ```R
 #SNP-index Method
 SNPindex_plot(vcf.list=vcf_list, 
-wtBulk="pool_minus",
-mBulk="pool_plus",
+wtBulk="pool_S3781_minus",
+mBulk="pool_S3781_plus",
 variants="SNP",
 min.SNPindex=0.3,
 max.SNPindex=0.9,
