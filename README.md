@@ -371,7 +371,7 @@ BSAvis_shiny(vcf_list)
 - Please refer to the [User Manual](https://github.com/FadyMohareb/BSAvis_GP_2020/blob/main/Documentation/user_manual_BSAvis.pdf "BSAvis User Manual") for a better understanding of the BSAvis R-Shiny application, together with its functionalities.
 
 # Authors
-BSAvis (Version 1.0) was developped by:<br>
+BSAvis (Version 1.0) was developed by:<br>
 
 _Elisabetta Galatola, Rebecca Guy, Weiyi Huang, Sweta Jajoriya, Claudia Rey-Carrascosa_<br><br>
 _Applied Bioinformatics MSc_<br>
